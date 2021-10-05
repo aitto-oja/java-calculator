@@ -266,6 +266,7 @@ public class Calculator implements ActionListener {
             result = 0.0;
             textfield.setText("");
             infoText.setText("");
+            infoText.setForeground(Color.green);
         }
 
         if (e.getSource() == delButton) {
