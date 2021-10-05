@@ -28,6 +28,7 @@ public class Calculator implements ActionListener {
         textfield = new JTextField();
         textfield.setBounds(40, 25, 340, 50);
         textfield.setFont(myFont);
+        textfield.setEditable(false);
         frame.add(textfield);
 
         // Warning textfield:
@@ -36,6 +37,7 @@ public class Calculator implements ActionListener {
         warningText.setFont(warningFont);
         warningText.setForeground(Color.red);
         warningText.setBackground(new java.awt.Color(61,44,141));
+        warningText.setEditable(false);
         frame.add(warningText);
 
         // Number buttons: 
