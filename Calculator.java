@@ -283,5 +283,13 @@ public class Calculator implements ActionListener {
             textfield.setText("");
             infoText.setText("");
         }
+
+        if (e.getSource() == delButton) {
+            String str = textfield.getText();
+            textfield.setText("");
+            for (int i=0; i<str.length()-1; i++) {
+                textfield.setText(textfield.getText() + str.charAt(i));
+            }
+        }
     }
 }
