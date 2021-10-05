@@ -10,10 +10,10 @@ public class Calculator implements ActionListener {
     JButton[] functionButtons = new JButton[9];
     JButton addButton, subButton, mulButton, divButton;
     JButton decButton, equButton, delButton, clrButton, negButton;
-    JTextField warningText;
+    JTextField infoText;
 
     Font myFont = new Font("Serif", Font.BOLD, 33);
-    Font warningFont = new Font("Serif", Font.BOLD, 12);
+    Font infoFont = new Font("Serif", Font.BOLD, 12);
 
     // Constructor
     Calculator() {
@@ -31,14 +31,14 @@ public class Calculator implements ActionListener {
         textfield.setEditable(false);
         frame.add(textfield);
 
-        // Warning textfield:
-        warningText = new JTextField();
-        warningText.setBounds(40, 75, 340, 20);
-        warningText.setFont(warningFont);
-        warningText.setForeground(Color.red);
-        warningText.setBackground(new java.awt.Color(61,44,141));
-        warningText.setEditable(false);
-        frame.add(warningText);
+        // Info textfield:
+        infoText = new JTextField();
+        infoText.setBounds(40, 75, 340, 20);
+        infoText.setFont(infoFont);
+        infoText.setForeground(Color.green);
+        infoText.setBackground(new java.awt.Color(61,44,141));
+        infoText.setEditable(false);
+        frame.add(infoText);
 
         // Number buttons: 
         for (int i=0; i<10; i++) {
