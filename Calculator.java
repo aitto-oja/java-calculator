@@ -141,11 +141,7 @@ public class Calculator implements ActionListener {
         if (e.getSource() == addButton) {
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
-                if (infoText.getText().length() == 0) {
-                    infoText.setText(textfield.getText().concat(" + "));    
-                } else {
-                    infoText.setText(String.valueOf(num1).concat(" + "));
-                }
+                infoText.setText(String.valueOf(num1).concat(" + "));
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" - ");
@@ -167,11 +163,7 @@ public class Calculator implements ActionListener {
         if (e.getSource() == subButton) {
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
-                if (infoText.getText().length() == 0) {
-                    infoText.setText(textfield.getText().concat(" - "));    
-                } else {
-                    infoText.setText(String.valueOf(num1).concat(" - "));
-                }
+                infoText.setText(String.valueOf(num1).concat(" - "));
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" + ");
@@ -193,11 +185,7 @@ public class Calculator implements ActionListener {
         if (e.getSource() == mulButton) {
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
-                if (infoText.getText().length() == 0) {
-                    infoText.setText(textfield.getText().concat(" * "));    
-                } else {
-                    infoText.setText(String.valueOf(num1).concat(" * "));
-                }
+                infoText.setText(String.valueOf(num1).concat(" * "));
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" + ");
@@ -219,11 +207,7 @@ public class Calculator implements ActionListener {
         if (e.getSource() == divButton) {
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
-                if (infoText.getText().length() == 0) {
-                    infoText.setText(String.valueOf(num1).concat(" / "));    
-                } else {
-                    infoText.setText(String.valueOf(num1).concat(" / "));
-                }
+                infoText.setText(String.valueOf(num1).concat(" / "));
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" + ");
