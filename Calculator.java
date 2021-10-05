@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Calculator {
+public class Calculator implements ActionListener {
     JFrame frame;
     JTextField textfield;
     JPanel panel;
@@ -114,5 +115,10 @@ public class Calculator {
     }
     public static void main(String[] args) {
         Calculator calc = new Calculator();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
