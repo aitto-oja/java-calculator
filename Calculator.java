@@ -9,8 +9,10 @@ public class Calculator {
     JButton[] functionButtons = new JButton[9];
     JButton addButton, subButton, mulButton, divButton;
     JButton decButton, equButton, delButton, clrButton, negButton;
+    JTextField warningText;
 
     Font myFont = new Font("Serif", Font.BOLD, 33);
+    Font warningFont = new Font("Serif", Font.BOLD, 12);
 
     // Constructor
     Calculator() {
@@ -26,6 +28,14 @@ public class Calculator {
         textfield.setBounds(40, 25, 340, 50);
         textfield.setFont(myFont);
         frame.add(textfield);
+
+        // Warning textfield:
+        warningText = new JTextField();
+        warningText.setBounds(40, 75, 340, 20);
+        warningText.setFont(warningFont);
+        warningText.setForeground(Color.red);
+        warningText.setBackground(new java.awt.Color(61,44,141));
+        frame.add(warningText);
 
         // Number buttons: 
         for (int i=0; i<10; i++) {
