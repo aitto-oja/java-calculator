@@ -275,5 +275,13 @@ public class Calculator implements ActionListener {
             
             num1 = result;
         }
+
+        if (e.getSource() == clrButton) {
+            num1 = 0.0;
+            num2 = 0.0;
+            result = 0.0;
+            textfield.setText("");
+            infoText.setText("");
+        }
     }
 }
