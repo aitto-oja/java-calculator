@@ -41,6 +41,7 @@ public class Calculator implements ActionListener {
         // Number buttons: 
         for (int i=0; i<10; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
+            numberButtons[i].addActionListener(this);
             numberButtons[i].setFont(myFont);
             numberButtons[i].setFocusable(false);
         }
@@ -66,6 +67,7 @@ public class Calculator implements ActionListener {
         functionButtons[8] = negButton;
 
         for (int i=0; i<9; i++) {
+            functionButtons[i].addActionListener(this);
             functionButtons[i].setFont(myFont);
             functionButtons[i].setFocusable(false);
         }
