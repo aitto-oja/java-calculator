@@ -1,8 +1,11 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Calculator {
     JFrame frame;
     JTextField textfield;
+
+    Font myFont = new Font("Serif", Font.BOLD, 30);
 
     // Constructor
     Calculator() {
@@ -13,6 +16,7 @@ public class Calculator {
 
         textfield = new JTextField();
         textfield.setBounds(40, 25, 340, 50);
+        textfield.setFont(myFont);
         frame.add(textfield);
 
         frame.setVisible(true);
