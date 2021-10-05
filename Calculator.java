@@ -136,6 +136,30 @@ public class Calculator implements ActionListener {
                     textfield.setText(textfield.getText().concat("."));
                 } 
             }
+
+            if (e.getSource() == addButton) {
+                if (textfield.getText().length() > 0) {
+                    num1 = Double.parseDouble(textfield.getText());
+                    operator = '+';
+                    boolean isAdd = infoText.getText().contains(" + ");
+                    boolean isSub = infoText.getText().contains(" - ");
+                    boolean isMul = infoText.getText().contains(" * ");
+                    boolean isDiv = infoText.getText().contains(" / ");
+
+                    if (isAdd) {
+                        infoText.setText(infoText.getText().replace(" + ", " + "));
+                    } else if (isSub) {
+                        infoText.setText(infoText.getText().replace(" - ", " + "));
+                    } else if (isMul) {
+                        infoText.setText(infoText.getText().replace(" * ", " + "));
+                    } else if (isDiv) {
+                        infoText.setText(infoText.getText().replace(" / ", " + "));
+                    } else {
+                        infoText.setText(textfield.getText().concat(" + "));
+                    }
+                    textfield.setText("");
+                }
+            }
         }
     }
 }
