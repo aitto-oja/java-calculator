@@ -15,7 +15,7 @@ public class Calculator implements ActionListener {
     Font myFont = new Font("Serif", Font.BOLD, 33);
     Font infoFont = new Font("Serif", Font.ITALIC, 12);
 
-    double num1 = 0, num2 = 0, result = 0;
+    double num1 = 0.0, num2 = 0.0, result = 0.0;
     char operator; 
 
     // Constructor
@@ -144,7 +144,7 @@ public class Calculator implements ActionListener {
                 if (infoText.getText().length() == 0) {
                     infoText.setText(textfield.getText().concat(" + "));    
                 } else {
-                    infoText.setText("0 + ");
+                    infoText.setText(String.valueOf(num1).concat(" + "));
                 }
                 textfield.setText("");
             } else {
@@ -170,7 +170,7 @@ public class Calculator implements ActionListener {
                 if (infoText.getText().length() == 0) {
                     infoText.setText(textfield.getText().concat(" - "));    
                 } else {
-                    infoText.setText("0 - ");
+                    infoText.setText(String.valueOf(num1).concat(" - "));
                 }
                 textfield.setText("");
             } else {
@@ -196,7 +196,7 @@ public class Calculator implements ActionListener {
                 if (infoText.getText().length() == 0) {
                     infoText.setText(textfield.getText().concat(" * "));    
                 } else {
-                    infoText.setText("0 * ");
+                    infoText.setText(String.valueOf(num1).concat(" * "));
                 }
                 textfield.setText("");
             } else {
@@ -220,9 +220,9 @@ public class Calculator implements ActionListener {
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
                 if (infoText.getText().length() == 0) {
-                    infoText.setText(textfield.getText().concat(" / "));    
+                    infoText.setText(String.valueOf(num1).concat(" / "));    
                 } else {
-                    infoText.setText("0 / ");
+                    infoText.setText(String.valueOf(num1).concat(" / "));
                 }
                 textfield.setText("");
             } else {
@@ -240,6 +240,40 @@ public class Calculator implements ActionListener {
                 }
             }
             operator = '/';
+        }
+
+        if (e.getSource() == equButton) {
+            num2 = Double.parseDouble(textfield.getText());
+            switch(operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 != 0) {
+                        result = num1/num2;
+                    } else {
+                        result = Double.POSITIVE_INFINITY;
+                        infoText.setText("Warning: cannot divide by zero.");
+                        infoText.setForeground(Color.red);
+                    }
+                    break;
+            }
+            textfield.setText(String.valueOf(result));
+            if (operator != '/') {
+                infoText.setText(infoText.getText().concat(String.valueOf(num2)).concat(" = ").concat(String.valueOf(result)));
+            } else {
+                if (num2 != 0) {
+                    infoText.setText(infoText.getText().concat(String.valueOf(num2)).concat(" = ").concat(String.valueOf(result)));
+                }
+            }
+            
+            num1 = result;
         }
     }
 }
