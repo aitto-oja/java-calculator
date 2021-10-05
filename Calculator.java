@@ -13,7 +13,10 @@ public class Calculator implements ActionListener {
     JTextField infoText;
 
     Font myFont = new Font("Serif", Font.BOLD, 33);
-    Font infoFont = new Font("Serif", Font.BOLD, 12);
+    Font infoFont = new Font("Serif", Font.ITALIC, 12);
+
+    double num1 = 0, num2 = 0, result = 0;
+    char operator; 
 
     // Constructor
     Calculator() {
