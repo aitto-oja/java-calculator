@@ -12,6 +12,7 @@ public class Calculator {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420,550);
+        frame.getContentPane().setBackground(new java.awt.Color(61,44,141));
         frame.setLayout(null);
 
         textfield = new JTextField();
