@@ -130,34 +130,64 @@ public class Calculator implements ActionListener {
             if (e.getSource() == numberButtons[i]) {
                 textfield.setText(textfield.getText().concat(String.valueOf(i)));
             }
+        }
 
-            if (e.getSource() == decButton) {
-                if (!textfield.getText().contains(".")) {
-                    textfield.setText(textfield.getText().concat("."));
-                } 
+        if (e.getSource() == decButton) {
+            if (!textfield.getText().contains(".")) {
+                textfield.setText(textfield.getText().concat("."));
+            } 
+        }
+
+        if (e.getSource() == addButton) {
+            if (textfield.getText().length() > 0) {
+                num1 = Double.parseDouble(textfield.getText());
+                if (infoText.getText().length() == 0) {
+                    infoText.setText(textfield.getText().concat(" + "));    
+                } else {
+                    infoText.setText("0 + ");
+                }
+                operator = '+';
+                
+                textfield.setText("");
+            } else {
+                boolean isSub = infoText.getText().contains(" - ");
+                if (isSub) {
+                    infoText.setText(infoText.getText().replace(" - ", " + "));
+                }
+                boolean isMul = infoText.getText().contains(" * ");
+                if (isMul) {
+                    infoText.setText(infoText.getText().replace(" * ", " + "));
+                }
+                boolean isDiv = infoText.getText().contains(" / ");
+                if (isDiv) {
+                    infoText.setText(infoText.getText().replace(" / ", " + "));
+                }
             }
+        }
 
-            if (e.getSource() == addButton) {
-                if (textfield.getText().length() > 0) {
-                    num1 = Double.parseDouble(textfield.getText());
-                    operator = '+';
-                    boolean isAdd = infoText.getText().contains(" + ");
-                    boolean isSub = infoText.getText().contains(" - ");
-                    boolean isMul = infoText.getText().contains(" * ");
-                    boolean isDiv = infoText.getText().contains(" / ");
-
-                    if (isAdd) {
-                        infoText.setText(infoText.getText().replace(" + ", " + "));
-                    } else if (isSub) {
-                        infoText.setText(infoText.getText().replace(" - ", " + "));
-                    } else if (isMul) {
-                        infoText.setText(infoText.getText().replace(" * ", " + "));
-                    } else if (isDiv) {
-                        infoText.setText(infoText.getText().replace(" / ", " + "));
-                    } else {
-                        infoText.setText(textfield.getText().concat(" + "));
-                    }
-                    textfield.setText("");
+        if (e.getSource() == subButton) {
+            if (textfield.getText().length() > 0) {
+                num1 = Double.parseDouble(textfield.getText());
+                if (infoText.getText().length() == 0) {
+                    infoText.setText(textfield.getText().concat(" - "));    
+                } else {
+                    infoText.setText("0 - ");
+                }
+                operator = '-';
+                
+                textfield.setText("");
+            } else {
+                boolean isSub = infoText.getText().contains(" + ");
+                if (isSub) {
+                    infoText.setText(infoText.getText().replace(" + ", " - "));
+                }
+                boolean isMul = infoText.getText().contains(" * ");
+                if (isMul) {
+                    infoText.setText(infoText.getText().replace(" * ", " - "));
+                }
+                boolean isDiv = infoText.getText().contains(" / ");
+                if (isDiv) {
+                    infoText.setText(infoText.getText().replace(" / ", " - "));
                 }
             }
         }
