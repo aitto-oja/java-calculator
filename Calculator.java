@@ -91,6 +91,15 @@ public class Calculator {
 
         frame.add(panel);
 
+        // Buttons under the panel: 
+        negButton.setBounds(40, 450, 50, 50);
+        delButton.setBounds(130, 450, 120, 50);
+        clrButton.setBounds(260, 450, 120, 50);
+
+        frame.add(negButton);
+        frame.add(delButton);
+        frame.add(clrButton);
+
         frame.setVisible(true);
     }
     public static void main(String[] args) {
