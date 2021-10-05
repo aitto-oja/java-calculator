@@ -146,8 +146,6 @@ public class Calculator implements ActionListener {
                 } else {
                     infoText.setText("0 + ");
                 }
-                operator = '+';
-                
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" - ");
@@ -163,6 +161,7 @@ public class Calculator implements ActionListener {
                     infoText.setText(infoText.getText().replace(" / ", " + "));
                 }
             }
+            operator = '+';
         }
 
         if (e.getSource() == subButton) {
@@ -173,8 +172,6 @@ public class Calculator implements ActionListener {
                 } else {
                     infoText.setText("0 - ");
                 }
-                operator = '-';
-                
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" + ");
@@ -190,6 +187,7 @@ public class Calculator implements ActionListener {
                     infoText.setText(infoText.getText().replace(" / ", " - "));
                 }
             }
+            operator = '-';
         }
 
         if (e.getSource() == mulButton) {
@@ -200,8 +198,6 @@ public class Calculator implements ActionListener {
                 } else {
                     infoText.setText("0 * ");
                 }
-                operator = '*';
-                
                 textfield.setText("");
             } else {
                 boolean isSub = infoText.getText().contains(" + ");
@@ -217,6 +213,33 @@ public class Calculator implements ActionListener {
                     infoText.setText(infoText.getText().replace(" / ", " * "));
                 }
             }
+            operator = '*';
+        }
+
+        if (e.getSource() == divButton) {
+            if (textfield.getText().length() > 0) {
+                num1 = Double.parseDouble(textfield.getText());
+                if (infoText.getText().length() == 0) {
+                    infoText.setText(textfield.getText().concat(" / "));    
+                } else {
+                    infoText.setText("0 / ");
+                }
+                textfield.setText("");
+            } else {
+                boolean isSub = infoText.getText().contains(" + ");
+                if (isSub) {
+                    infoText.setText(infoText.getText().replace(" + ", " / "));
+                }
+                boolean isMul = infoText.getText().contains(" - ");
+                if (isMul) {
+                    infoText.setText(infoText.getText().replace(" - ", " / "));
+                }
+                boolean isDiv = infoText.getText().contains(" * ");
+                if (isDiv) {
+                    infoText.setText(infoText.getText().replace(" * ", " / "));
+                }
+            }
+            operator = '/';
         }
     }
 }
