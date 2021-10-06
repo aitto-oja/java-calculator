@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Calculator implements ActionListener {
+public class Calculator implements ActionListener, MouseListener {
     JFrame frame;
     JTextField textfield;
     JPanel panel;
@@ -12,7 +12,8 @@ public class Calculator implements ActionListener {
     JButton decButton, equButton, delButton, clrButton, negButton;
     JTextField infoText;
 
-    Font myFont = new Font("Serif", Font.BOLD, 33);
+    Font myFont = new Font("Serif", Font.BOLD, 30);
+    Font hoverFont = new Font("Serif", Font.BOLD, 33);
     Font infoFont = new Font("Serif", Font.ITALIC, 12);
 
     double num1 = 0.0, num2 = 0.0, result = 0.0;
@@ -24,6 +25,7 @@ public class Calculator implements ActionListener {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420,550);
+        frame.setForeground(new java.awt.Color(28, 12, 91));
         frame.getContentPane().setBackground(new java.awt.Color(61,44,141));
         frame.setLayout(null);
 
@@ -47,6 +49,7 @@ public class Calculator implements ActionListener {
         for (int i=0; i<10; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
             numberButtons[i].addActionListener(this);
+            numberButtons[i].addMouseListener(this);
             numberButtons[i].setFont(myFont);
             numberButtons[i].setFocusable(false);
         }
@@ -73,6 +76,7 @@ public class Calculator implements ActionListener {
 
         for (int i=0; i<9; i++) {
             functionButtons[i].addActionListener(this);
+            functionButtons[i].addMouseListener(this);
             functionButtons[i].setFont(myFont);
             functionButtons[i].setFocusable(false);
         }
@@ -291,4 +295,36 @@ public class Calculator implements ActionListener {
             textfield.setText(String.valueOf(temp));
         }
     }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // Invoked when a mouse button has been clicked (pressed and released) on a component
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // Invoked when the mouse enters a component
+        Component c = e.getComponent();
+        c.setForeground(new java.awt.Color(145, 107, 191));
+        c.setFont(hoverFont);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // Invoked when the mouse exits a component 
+        Component c = e.getComponent();
+        c.setForeground(new java.awt.Color(28, 12, 91));
+        c.setFont(myFont);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // Invoked when a mouse button has been pressed on a component
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // Invoked when a mouse button has been released on a component
+    }
+
 }
