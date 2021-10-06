@@ -139,6 +139,7 @@ public class Calculator implements ActionListener {
         }
 
         if (e.getSource() == addButton) {
+            infoText.setForeground(Color.green);
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
                 infoText.setText(String.valueOf(num1).concat(" + "));
@@ -161,6 +162,7 @@ public class Calculator implements ActionListener {
         }
 
         if (e.getSource() == subButton) {
+            infoText.setForeground(Color.green);
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
                 infoText.setText(String.valueOf(num1).concat(" - "));
@@ -183,6 +185,7 @@ public class Calculator implements ActionListener {
         }
 
         if (e.getSource() == mulButton) {
+            infoText.setForeground(Color.green);
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
                 infoText.setText(String.valueOf(num1).concat(" * "));
@@ -205,6 +208,7 @@ public class Calculator implements ActionListener {
         }
 
         if (e.getSource() == divButton) {
+            infoText.setForeground(Color.green);
             if (textfield.getText().length() > 0) {
                 num1 = Double.parseDouble(textfield.getText());
                 infoText.setText(String.valueOf(num1).concat(" / "));
@@ -270,6 +274,8 @@ public class Calculator implements ActionListener {
         }
 
         if (e.getSource() == delButton) {
+            infoText.setForeground(Color.green);
+            infoText.setText("");
             String str = textfield.getText();
             textfield.setText("");
             for (int i=0; i<str.length()-1; i++) {
@@ -278,6 +284,8 @@ public class Calculator implements ActionListener {
         }
 
         if (e.getSource() == negButton) {
+            infoText.setForeground(Color.green);
+            infoText.setText("");
             double temp = Double.parseDouble(textfield.getText());
             temp*=-1;
             textfield.setText(String.valueOf(temp));
